@@ -1,16 +1,17 @@
-export default class Building{
+export default class Building {
   constructor(sqft){
-    if (sqft.constructor.name === "Number"){
+    if (sqft.constructor.name === "Number") {
       this._sqft = sqft;
-      if(this.hasOwnProperty("evacuationWarningMessage")){
+      if (this.hasOwnProperty("evacuationWarningMessage")) {
         throw(new Error("Class extending Building must override evacuationWarningMessage"));
-      }else{console.log(`${this.constructor.name} apparently hii haina`);}
+        console.log(`${this.constructor.name} apparently hii haina`);
+      }
     }
   }
-    get sqft(){
-      return this._sqft;
-    }
-    evacuationWarningMessage(){
+  get sqft() {
+    return this._sqft;
+  }
+  evacuationWarningMessage() {
      
-    }
+  }
 }
