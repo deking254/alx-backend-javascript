@@ -1,16 +1,23 @@
-import uploadPhoto from "./upload"
-import createUser from "./utils"
+import * as all from './utils';
 
-export default async function asyncUploadUser(){
-  let result = {};
+const userProperty = 'createUser';
+const photoProperty = 'uploadPhoto';
+const createUser = all[userProperty];
+const uploadPhoto = all[photoProperty];
+
+export default async function asyncUploadUser() {
+  const result = {};
   try {
-    await uploadPhoto().then((obj)=>{result.photo = obj;});
-    await createUser().then((obj)=>{result.user = obj;});
+    await uploadPhoto().then((obj) => {
+      result.photo = obj;
+    });
+    await createUser().then((obj) => {
+      result.user = obj;
+    });
     return result;
   } catch (error) {
-  console.log(error);
-  result.photo = null;
-  result.user = null;
-  return result;
-}
+    result.photo = null;
+    result.user = null;
+    return result;
+  }
 }

@@ -1,9 +1,14 @@
-import {uploadPhoto, createUser} from "./utils";
+import * as l from './utils';
 
-export function handleProfileSignup(){
-  uploadPhoto().then((obj)=>{
-    createUser().then((usr)=>{
-      console.log(`${obj.body} ${usr.firstName} ${obj.lastName}`);
+const userProperty = 'createUser';
+const photoProperty = 'uploadPhoto';
+const createUser = l[userProperty];
+const uploadPhoto = l[photoProperty];
+
+export default function handleProfileSignup() {
+  uploadPhoto().then((obj) => {
+    createUser().then((usr) => {
+      console.log(`${obj.body} ${usr.firstName} ${usr.lastName}`);
     });
   });
 }
