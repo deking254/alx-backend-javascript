@@ -3,11 +3,12 @@ export default function createReportObject(employeesList) {
     allEmployees: employeesList,
     getNumberOfDepartments(employeesList) {
       let length = 0;
-      for (const i in employeesList) {
-        length++;
+      for (const department in employeesList) {
+        if (department) {
+          length += 1;
+        }
       }
       return length;
     },
-
   };
 }
