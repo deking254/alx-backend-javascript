@@ -36,6 +36,8 @@ function countStudents(path) {
               studentsCountries += `Number of students in ${countries[i]}: ${numberOfPeople}. List: ${people}\n`;
             }
           }
+        } else {
+          resolve('This is the list of our students\nCannot load the database');
         }
       });
     });
