@@ -22,13 +22,18 @@ function countStudents(path) {
               }
             }
           });
+          const students = `Number of students: ${numberOfStudents}\n`;
           console.log(`Number of students: ${numberOfStudents}`);
+          let studentsCountries = '';
           for (let i = 0; i < countries.length; i += 1) {
             const numberOfPeople = countryPeople[countries[i]].length;
             const people = countryPeople[countries[i]].join(', ');
             console.log(`Number of students in ${countries[i]}: ${numberOfPeople}. List: ${people}`);
             if (i === countries.length - 1) {
-              resolve();
+              studentsCountries += `Number of students in ${countries[i]}: ${numberOfPeople}. List: ${people}`;
+              resolve(`This is the list of our students\n${students}${studentsCountries}`);
+            } else {
+              studentsCountries += `Number of students in ${countries[i]}: ${numberOfPeople}. List: ${people}\n`;
             }
           }
         }
