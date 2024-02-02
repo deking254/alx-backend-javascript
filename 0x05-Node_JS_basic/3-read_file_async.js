@@ -1,11 +1,11 @@
 const file = require('fs');
 
 function countStudents(path) {
-  file.exists(path, (r) => {
-          console.log('Number of students: 10');
-    if (r) {
+      try{
+      a =  new Promise((resolve, reject)=>{
       file.readFile(path, (r, contents) => {
-        const content = contents.toString();
+       if (r === null){
+	const content = contents.toString();
         const array = content.split('\n');
         const numberOfStudents = array.length - 2;
         const countryPeople = {};
@@ -23,16 +23,19 @@ function countStudents(path) {
           }
         });
         console.log(`Number of students: ${numberOfStudents}`);
-        countries.forEach((country) => {
-          const numberOfPeople = countryPeople[country].length;
-          const people = countryPeople[country].join(', ');
-          console.log(`Number of students in ${country}: ${numberOfPeople}. List: ${people}`);
-        });
-      });
-    } else {
-      throw Error('Cannot load the database');
-    }
-  });
-  return new Promise(()=>{})
+        for(i=0; i < countries.length; i++){
+          let numberOfPeople = countryPeople[countries[i]].length;
+          let people = countryPeople[countries[i]].join(', ');
+          console.log(`Number of students in ${countries[i]}: ${numberOfPeople}. List: ${people}`);
+	  if (i === countries.length - 1){
+		  resolve();
+	  }
+        };
+	
+      }})
+})}catch(e){
+	throw Error('Cannot load the database');
 }
+	return a;
+  };
 module.exports = countStudents;
