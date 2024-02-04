@@ -1,4 +1,9 @@
+const calculateNumber = require('./0-calcul');
 const assert = require('assert');
-const calculateNumber = require("./0-calcul.js");
-assert.equal(calculateNumber(9.7, 2), 12);
-assert.equal(calculateNumber(9, 2), 11);
+it('calculateNumber', (done)=>{
+  assert.equal(calculateNumber(7.6, 2), 10);
+  assert.equal(calculateNumber(3, 4.2), 7);
+  assert.equal(calculateNumber(7.3, 3), 10);
+  assert.equal(calculateNumber(6, 5.8), 12);
+  done()
+})
