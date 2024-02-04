@@ -1,8 +1,8 @@
-const { spy } = require('sinon');
+const sinon = require('sinon');
 const { expect } = require('chai');
 const Util = require('./utils.js');
 const sendPaymentRequestToApi = require('./3-payment.js');
-let a = spy(Util, 'calculateNumber');
+let a = sinon.spy(Util, 'calculateNumber');
 describe('sendPaymentRequestToApi', ()=>{
   it('testing', (done)=>{
     sendPaymentRequestToApi(100, 20)
