@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const calculateNumber = require('./1-calcul.js');
+const calculateNumber = require('./2-calcul_chai.js');
 describe('Testing', ()=>{
   it('tests', (done)=>{
     let sum = calculateNumber('SUM', 1.4, 4.5);
