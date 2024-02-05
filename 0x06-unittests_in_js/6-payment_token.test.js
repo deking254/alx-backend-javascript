@@ -4,11 +4,11 @@ describe('getPaymentTokenFromAPI', ()=>{
   it('testing', (done)=>{
     getPaymentTokenFromAPI(true).then((a)=>{
       try{
-        expect(a).to.equal({data: 'Successful response from the API' });
-        done();
+       expect(a).to.deep.equal({data: 'Successful response from the API' });
+       done();
       } catch (e) {
-        done();
+        done(Error(e));
       }
-    })
-  })
+  });
+})
 })
